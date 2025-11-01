@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Text } from '@/components/ui/text'
 import { Link } from 'expo-router'
 import { LinearGradient } from 'expo-linear-gradient'
+import { GuessedList } from '@/constant'
 
 export default function game_over() {
     return (
@@ -15,16 +16,17 @@ export default function game_over() {
         >
             <View className='flex-1 items-center justify-center p-6 gap-6'>
                 <Text className='text-2xl font-bold text-center text-white'>
-                    Congratulations, You guessed the number
+                    Congratulations, You guessed the number in {GuessedList.length} attempts
                 </Text>
 
-                <Link href='/home' asChild>
-                    <Button className='bg-white/15 border border-white/20 rounded-full w-1/2 mt-2 shadow-md'>
-                        <Text className='text-white text-xl font-bold text-center'>
-                            Play Again
-                        </Text>
-                    </Button>
-                </Link>
+                <View className='w-full mt-4 rounded-2xl bg-white/10 border border-white/20' style={{ paddingVertical: 4 }}>
+                    <Link href='/home' asChild>
+                         
+                            <Text className='text-white text-xl font-bold text-center'>
+                                Play Again
+                            </Text> 
+                    </Link>
+                </View>
             </View>
         </LinearGradient>
     )

@@ -32,6 +32,7 @@ const home = () => {
                 setOpen(true)
 
             } else {
+                GuessedNumber.pop()
                 GuessedNumber.push(number)
                 setNumber(null)
                 router.push('/playground')
