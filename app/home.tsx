@@ -3,30 +3,41 @@ import { Input } from '@/components/ui/input'
 import { Text } from '@/components/ui/text'
 import { Link } from 'expo-router'
 import { View } from 'react-native'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const home = () => {
     return (
-        <View className='flex-1 p-4 bg-slate-300'>
-            <View className=' items-center rounded-lg bg-slate-400 w-full p-4'>
-                <Text className='text-2xl font-bold text-center'>Guess A Random Number</Text>
-            </View>
-            <View className='items-center justify-center mt-4  bg-slate-400 p-4 rounded-lg '>
-                <Text className='text-2xl font-bold text-center'>Enter a number</Text>
-                <View className=' items-center justify-center flex-col gap-4 mt-4'>
-                    <Input placeholder='Enter a number' className='w-1/2 min-w-[100px] bg-slate-200 rounded-lg' keyboardType='numeric' />
+        <LinearGradient
+            colors={['#0ea5e9', '#8b5cf6']}
+            start={{ x: 0, y: 0 }}
+            end={{ x: 1, y: 1 }}
+            className='flex-1'
+        >
+            <View className='flex-1 p-6 gap-6'>
+                <View className='w-full items-center rounded-2xl bg-white/10 border border-white/20 p-5'>
+                    <Text className='text-2xl font-bold text-center text-white'>Guess A Random Number</Text>
+                </View>
 
-                    <View className='flex-row items-center justify-center gap-4'>
+                <View className='items-center justify-center w-full rounded-2xl bg-white/10 border border-white/20 p-5 gap-4'>
+                    <Text className='text-xl font-semibold text-center text-white'>Enter a number</Text>
+                    <View className='items-center justify-center gap-4 w-full'>
+                        <Input placeholder='Enter a number' className='w-1/2 min-w-[140px] bg-white/80 rounded-lg' keyboardType='numeric' />
 
-                        <Button className='bg-red-700'>
-                            <Text className='text-white '>Reset</Text>
-                        </Button>
-                        <Button className='bg-green-800'>
-                            <Link href='/playground' className='text-white'>Confirm</Link>
-                        </Button>
+                        <View className='flex-row items-center justify-center gap-4'>
+                            <Button className='bg-white/15 border border-white/20 rounded-full px-4'>
+                                <Text className='text-white'>Reset</Text>
+                            </Button>
+
+                            <Link href='/playground' asChild>
+                                <Button className='bg-white/15 border border-white/20 rounded-full px-6'>
+                                    <Text className='text-white'>Confirm</Text>
+                                </Button>
+                            </Link>
+                        </View>
                     </View>
                 </View>
             </View>
-        </View>
+        </LinearGradient>
     )
 }
 
